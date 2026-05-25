@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volt Ride - Campus Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-section">
+            <div class="logo-icon">⚡</div>
+            <div class="logo-text"><h1>VOLT RIDE</h1><p>Campus Ride Management System</p></div>
+        </div>
+        <nav>
+            <button id="nav-auth" onclick="switchTab('auth')" class="active">Login Hub</button>
+            <button id="nav-portal" onclick="switchTab('portal')">Ride Screens</button>
+        </nav>
+    </header>
+
+    <main>
+        <div id="panel-auth" class="panel active">
+            <div class="card auth-card">
+                <div class="card-title">Account Gateway</div>
+                <div class="card-subtitle">Sign in or register securely to locate routes</div>
+                <div class="auth-toggle">
+                    <button id="btn-toggle-login" onclick="toggleAuthMode('login')" class="active">Sign In</button>
+                    <button id="btn-toggle-reg" onclick="toggleAuthMode('register')">Sign Up</button>
+                </div>
+                <form id="authForm" onsubmit="event.preventDefault(); handleAuthSubmit();">
+                    <div class="form-group hidden" id="wrapper-name"><label>Full Name</label><input type="text" id="authName" class="form-input" placeholder="Name"></div>
+                    <div class="form-group"><label>Campus Email</label><input type="email" id="authEmail" class="form-input" placeholder="name@campus.com"></div>
+                    <div class="form-group"><label>Password</label><input type="password" id="authPassword" class="form-input" placeholder="••••••••"></div>
+                    <div class="form-group hidden" id="wrapper-role">
+                        <label>Profile Type</label>
+                        <select id="authRole" class="form-input">
+                            <option value="FACULTY">🎓 CAMPUS FACULTY MEMBER</option>
+                            <option value="DRIVER">👨‍✈️ VOLT SHIP PILOT / DRIVER</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="authSubmitBtn" class="btn-prime">Log In</button>
+                </form>
+                <div id="authStatus" class="status-box"></div>
+            </div>
+        </div>
+
+        <div id="panel-portal" class="panel">
+            <div class="portal-grid">
+                <div>
+                    <div id="faculty-section" class="card" style="opacity: 0.4; pointer-events: none;">
+                        <div class="card-title">Book a Campus Ride</div>
+                        <div id="facultyWelcome" class="card-subtitle">Loading endpoint...</div>
+                        <div class="wallet-stash"><span class="wallet-title">Your Balance</span><span id="facultyWallet" class="wallet-val">0 PTS</span></div>
+                        
+                        <form id="bookingForm" onsubmit="event.preventDefault(); bookRide();">
+                            <div class="form-group"><label>Pickup Location</label><select id="sourceSelect" class="form-input"></select></div>
+                            <div class="form-group"><label>Drop-off Destination</label><select id="destinationSelect" class="form-input"></select></div>
+                            <div class="form-group">
+                                <label style="color: #00f2fe;">👥 Number of Seats Required</label>
+                                <select id="seatsRequestedSelect" class="form-input" style="border-color:#00f2fe; color:#00f2fe; font-weight:bold;">
+                                    <option value="1">👤 1 Seat Only (Solo Travel — 20 PTS)</option>
+                                    <option value="2">👥 2 Seats Shared (Dept Match — 30 PTS)</option>
+                                    <option value="3">👨‍👩‍👦 3 Seats Full Block (Committee — 40 PTS)</option>
+                                </select>
+                            </div>
+                            <button type="submit" id="bookRideBtn" class="btn-prime">🚀 Book Ride Now</button>
+                        </form>
+                        <div id="facultyStatusCard" class="status-box"></div>
+                    </div>
+
+                    <div id="driver-section" class="card" style="opacity: 0.4; pointer-events: none;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom:15px;">
+                            <div class="card-title">Driver Cockpit</div>
+                            <button type="button" onclick="checkDriverRide();" class="btn-action">🔄 Refresh</button>
+                        </div>
+                        <div id="driverWelcome" class="card-subtitle">Syncing pilot...</div>
+                        <div id="driverJobCard" class="card-subtitle" style="background: rgba(3,7,18,0.3); padding: 22px; border-radius: 12px; border: 1px dashed rgba(255,255,255,0.1); text-align: center; font-style: italic;">No active requests.</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Your Personal Trips Logs Ledger</div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead><tr><th>Ride ID</th><th>Route Info</th><th>Driver Name</th><th>Points Fee</th><th>Status</th></tr></thead>
+                            <tbody id="facultyHistoryContainer"><tr><td colspan="5" style="text-align: center; color: #64748b; padding: 40px 0;">No tracks tracked yet.</td></tr></tbody>
+                            <tbody id="driverHistoryContainer" class="hidden"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

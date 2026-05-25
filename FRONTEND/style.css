@@ -1,0 +1,190 @@
+/* --- GENERAL RESET & CYBERPUNK PREMIUM THEME --- */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', Roboto, sans-serif; 
+}
+
+/* 🔥 OPTION 2: DEEP BLUE & ELECTRIC INDIGO INTENSITY */
+body { 
+    background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%) !important;
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 24px; 
+    color: #e2e8f0; 
+    overflow-x: hidden;
+    position: relative;
+}
+
+header { 
+    width: 100%; 
+    max-width: 1200px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding-bottom: 20px; 
+    border-bottom: 1px solid rgba(6, 182, 212, 0.15); 
+    margin-bottom: 35px; 
+    position: relative;
+    z-index: 10;
+}
+
+.logo-section { display: flex; align-items: center; gap: 12px; }
+
+/* 🌟 ACTIVE LOGO NEON PULSE WITH SOFT GLOW */
+.logo-icon { 
+    width: 45px; 
+    height: 45px; 
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); 
+    border-radius: 12px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: #020617; 
+    font-weight: 900; 
+    font-size: 24px; 
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.4); 
+    animation: logoPulse 2s infinite alternate;
+}
+
+@keyframes logoPulse {
+    0% { transform: scale(1); box-shadow: 0 0 15px rgba(6, 182, 212, 0.3); }
+    100% { transform: scale(1.05); box-shadow: 0 0 25px rgba(6, 182, 212, 0.6); }
+}
+
+.logo-text h1 { font-size: 24px; font-weight: 900; color: #ffffff; letter-spacing: 0.5px; }
+.logo-text p { font-size: 10px; text-transform: uppercase; color: #00f2fe; font-weight: 700; letter-spacing: 2px; }
+
+nav { 
+    display: flex; 
+    background: rgba(15, 23, 42, 0.6); 
+    padding: 5px; 
+    border-radius: 14px; 
+    gap: 6px; 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+}
+
+nav button { 
+    padding: 10px 22px; 
+    border-radius: 10px; 
+    border: none; 
+    font-size: 13px; 
+    font-weight: 700; 
+    color: #94a3b8; 
+    background: transparent; 
+    cursor: pointer; 
+    transition: all 0.3s; 
+}
+
+nav button.active { 
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); 
+    color: #020617; 
+    font-weight: 800; 
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); 
+}
+
+main { width: 100%; max-width: 1200px; z-index: 10; position: relative; }
+.panel { display: none; width: 100%; }
+.panel.active { display: block; }
+
+/* --- ⚡ COCKPIT CARD & RESPONSIVE GLASSMORPHIC FIELD --- */
+.card { 
+    background: rgba(10, 16, 28, 0.85); 
+    border: 1px solid rgba(0, 242, 254, 0.25); 
+    border-radius: 20px; 
+    padding: 32px; 
+    backdrop-filter: blur(24px); 
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); 
+    margin-bottom: 24px; 
+    transition: all 0.4s ease; 
+    position: relative;
+}
+
+/* 🔥 CYBER GLOW CARD STROKE PULSING ACTION */
+.auth-card { 
+    max-width: 420px; 
+    margin: 60px auto; 
+    animation: cardFloatGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes cardFloatGlow {
+    0% { 
+        transform: translateY(0px); 
+        border-color: rgba(0, 242, 254, 0.25);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 242, 254, 0.05); 
+    }
+    100% { 
+        transform: translateY(-8px); 
+        border-color: #00f2fe; 
+        box-shadow: 0 35px 60px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 242, 254, 0.3); 
+    }
+}
+
+.card-title { font-size: 21px; font-weight: 800; color: #ffffff; margin-bottom: 6px; letter-spacing: 0.3px; }
+.card-subtitle { font-size: 13px; color: #64748b; margin-bottom: 28px; line-height: 1.5; }
+
+.auth-toggle { display: flex; background: rgba(3, 7, 18, 0.5); padding: 5px; border-radius: 10px; margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.05); }
+.auth-toggle button { flex: 1; padding: 10px; border: none; border-radius: 7px; font-size: 13px; font-weight: 700; cursor: pointer; background: transparent; color: #64748b; transition: all 0.3s ease; }
+.auth-toggle button.active { background: rgba(30, 41, 59, 0.8); color: #00f2fe; border: 1px solid rgba(6, 182, 212, 0.3); }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
+
+/* CRISP ACTIVE FIELDS INPUT EFFECT */
+.form-input { 
+    width: 100%; 
+    padding: 14px 16px; 
+    border-radius: 10px; 
+    background: rgba(3, 7, 18, 0.4); 
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    font-size: 14px; 
+    color: #ffffff; 
+    outline: none; 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-input:focus { 
+    border-color: #00f2fe; 
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2); 
+    background: rgba(3, 7, 18, 0.6);
+}
+
+/* HIGH-END INTERACTIVE GRADIENT BUTTON ENGINE */
+.btn-prime { 
+    width: 100%; 
+    padding: 14px; 
+    border-radius: 10px; 
+    border: none; 
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #2563eb 100%); 
+    background-size: 200% auto;
+    color: #020617; 
+    font-weight: 800; 
+    font-size: 14px; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    margin-top: 10px; 
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-prime:hover { 
+    background-position: right center;
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.35);
+    color: #ffffff;
+}
+.btn-prime:active { transform: translateY(1px) scale(0.99); }
+
+.status-box { padding: 14px; border-radius: 10px; text-align: center; font-size: 13px; font-weight: 700; margin-top: 18px; display: none; }
+
+.portal-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media(min-width: 968px) { .portal-grid { grid-template-columns: 4.5fr 7.5fr; } }
+.wallet-stash { display: flex; justify-content: space-between; align-items: center; background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(3, 7, 18, 0.8) 100%); border: 1px solid rgba(6, 182, 212, 0.15); padding: 18px; border-radius: 14px; margin-bottom: 24px; }
+.wallet-title { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; }
+.wallet-val { font-size: 22px; font-weight: 900; color: #00ff88; }
+.table-wrap { width: 100%; overflow-x: auto; margin-top: 15px; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 14px; background: rgba(3, 7, 18, 0.2); }
+table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+th { background: rgba(15, 23, 42, 0.8); padding: 14px; font-weight: 700; color: #94a3b8; border-bottom: 1px solid rgba(255, 255, 255, 0.08); text-transform: uppercase; font-size: 11px; }
+td { padding: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.03); color: #cbd5e1; }
+.btn-action { padding: 8px 14px; background: rgba(255, 255, 255, 0.08); color: #ffffff; font-size: 11px; font-weight: 700; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; cursor: pointer; text-transform: uppercase; }
+.hidden { display: none !important; }
